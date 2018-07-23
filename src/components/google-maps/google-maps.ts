@@ -455,7 +455,7 @@ export class GoogleMapsComponent {
                                             '<img src="assets/imgs/icon_herbalife.png" />' +
                                             '<p>'+ content.name +'</p>' +
                                         '</div>' +
-                                        '<div class="content conent-address">' +
+                                        '<div class="content content-address">' +
                                             '<fa-icon class="fas fa-map-marked-alt" color="light"></fa-icon>' +
                                             '<p>'+ content.address +'</p>' +
                                         '</div>' +
