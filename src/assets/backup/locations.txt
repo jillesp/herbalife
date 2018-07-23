@@ -1,0 +1,104 @@
+Area: ORTIGAS 
+I Fit Ortigas Club 
+Name of Owner: Miles Bonoan/ MillTeam
+LG11 CITY & L AND MEGA PLAZA Bldg 
+AD B  AVE, CORNER GARNET ROAD 
+ORTIGAS Pasig city 1605 
+( back of Robinsons Galleria/ across 
+Holiday Inn Hotel, Blue building) 
+Operating Hours -630-9am/ 1130-130 pm/
+5-8pm /Saturdays 8-12am 
+09178553071/
+TAB Team: Ting/ Beng Medina
+x: 14.5891073
+y: 121.0584236
+
+AREA: Mandaluyong 
+The Shaping Bay 
+NAME OF OWNER : Sol Fernando / AWT 
+The Shaping Bay
+85 Sgt. Bumatay St., Plainview, Mandaluyong City
+5343288/2390949 ( across Shrine of Divine Mercy Church) 
+Sol Fernando 09178420362
+Myrna Fernando 09332022471
+TAB: Miles Bonoan
+x: 14.5762509
+y: 121.0316237
+
+AREA: Manila 
+NC OWNER : Mhay / Mike Reyes 
+3rd Flr, Sitio Grande bldg. 409 
+A soriano avenue intramuros manila 
+Operating times: Breakfast to lunch 
+(0927) 728 9037 Mhay and Mike Reyes
+TAB Team: Miles Bonoan
+x: 14.5934652
+y: 120.9715733
+
+AREA: Bicol 
+HEALTHY EXPRESS HUB
+Anonuevo compound 95 washington st.brgy.guilid,ligao city.(in front SSS and POST OFFICE ligao city
+7:00~10:00 AM 
+09359144332/09298932506
+Contact Myrna/ William Valencia
+TAB: Miles Bonoan
+--missing
+
+AREA: Quezon City 
+Extra Extra MNL
+Unit #313-O Paladoma Bldg., Katipunan Ave., Loyola Heights, QC.
+(In front of Ateneo, driveway between MSA and PSBank)
+(0917) 549 1559 Enzo 
+TAB: Miles Bonoan
+x: 14.6389597
+y: 121.0720668
+
+AREA: Baguio City
+NC NAME: Pines Wellness
+NC OWNER: Jeannete Co/Mil Team
+COMPLETE ADDRESS: No. 21 Pines studio lower session road, Baguio city
+CONTACT NO.: 0917-5066388
+OPERATING DAYS/TIME: Mon-Fri 11am-3pm/Sat-Sun 1pm-5pm
+TAB TEAM : Arlene Balangue
+x: 16.413614
+y: 120.593924
+
+AREA: Baguio City
+NC NAME: Wellness Revelation
+NC OWNER: Ma. Victoria Ereño
+COMPLETE ADDRESS: 4 Siapno Rd. Pacdal Baguio City
+CONTACT NO.: 0998-889-5129
+OPERATING DAYS/TIME: Mon-Sun 6am-12 nn
+TAB TEAM: Arnold Chummac
+x: 16.4174571
+y: 120.6122733
+
+AREA: Camiling Tarlac
+NC NAME: Cordero's Wellness Center/Active World Team
+NC OWNER: Marenelle Cordero
+COMPLETE ADDRESS: Luna st.Pob.H.Camiling Arcade, Camiling Tarlac
+CONTACT NO.: 0995-234-7034
+OPERATING DAYS/TIME: Mon-Sat 8am -10am
+TAB TEAM: Jeannete Co
+x: 15.6854847
+y: 120.4090437
+
+AREA: Sta. Ignacia, Tarlac
+NC NAME: Fatslim Wellness Center
+NC OWNER: Jorgette Eugenio/ World Team
+COMPLETE ADDRESS:   
+CONTACT NO.: 0933-861-1589/ 0995-611-1313
+OPERATING DAYS/TIME: Mon - Sat 6:30 am -10am
+TAB TEAM: Jeannete Co
+x: 15.6163466
+y: 120.4343454
+
+AREA: Baguio
+NC NAME: Healthy Cells Wellness Center
+NC OWNER: Arvin ereño/ World team
+COMPLETE ADDRESS: YMCA Bldg. 2nd flr. Rm 212
+CONTACT NO.: 0998-889-5128
+OPERATING DAYS/TIME: Mon-Fri 9am to 1 pm
+TAB TEAM: Arnold Chummac
+x: 16.411002
+y: 120.5976389

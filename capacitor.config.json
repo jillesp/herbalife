@@ -1,0 +1,6 @@
+{
+  "appId": "com.locator.herbalife",
+  "appName": "Herbalife-Locator",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

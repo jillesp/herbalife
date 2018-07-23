@@ -1,0 +1,30 @@
+<!-- <ion-menu [content]="content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Pages</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu> -->
+
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon> 
+    </button>
+    <ion-title>
+      <img class="header-logo" src="assets/imgs/logo_herbalife_white.png"/>
+    </ion-title>
+  </ion-navbar>
+</ion-header>  -->
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

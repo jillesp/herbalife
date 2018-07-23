@@ -1,0 +1,42 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon> 
+    </button>
+    <ion-title>
+      Herbalife
+    </ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content padding>
+  <div class="login-form_logo">
+    <img src="assets/imgs/logo_herbalife_v.png"/>
+  </div>
+  <div class="login-form_main">
+    <form (ngSubmit)="verifyLogin()">
+      <ion-list>
+        <ion-item>
+          <!-- <ion-label fixed>Username</ion-label> -->
+          <ion-input type="text" value="" placeholder="Username" #loginUname></ion-input>
+        </ion-item>
+        <ion-item>
+          <!-- <ion-label fixed>Password</ion-label> -->
+          <ion-input type="password" placeholder="Password" #loginPword></ion-input>
+        </ion-item>
+      </ion-list>
+      <button type="submit" ion-button class="login-form_login" padding>LOGIN</button>
+    </form>
+  </div>
+
+  <div id="pseudo-alert" [class]="className">
+      <fa-icon class="fas fa-exclamation-triangle" color="warning"></fa-icon>
+      <p>Error: Please check your login credentials.</p>
+  </div>
+</ion-content>

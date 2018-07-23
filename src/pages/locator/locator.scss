@@ -1,0 +1,45 @@
+page-locator {
+
+    ion-searchbar {padding: 0 !important;}
+    ion-searchbar input {padding: 8px 45px !important;}
+    ion-searchbar .searchbar-search-icon {top: 16px !important;}
+    .locator-form {position: absolute; z-index: 9999; left: 50%; transform: translateX(-50%); width: 95%; overflow: hidden; top: 3px;}
+    .locator-form ion-list {margin: 10px 0;}
+    .locator-form ion-item {background: #FFF; padding: 5px 15px !important;}
+    .locator-form ion-item p {vertical-align: baseline}
+    .locator-form ion-item p b {color: color($colors, primary);}
+    .locator-form ion-item p i {font-size: 1.2rem;}
+    .locator-form ion-input {font-style: italic;}
+
+    .locator-form ion-item .content-owner {font-size: 1.2rem;}
+
+    .locator-form ion-list.disabled {display: none !important;}
+    .locator-form ion-list.enabled {display: block !important;}
+
+    .locator-content {background: #FFF;}
+    .locator-content .content {margin: 5px 0; position: relative;}
+    .locator-content .content fa-icon {margin: 0 5px; position: absolute; top: 50%; transform: translateY(-50%); font-size: 1.6rem;}
+    .locator-content .content p {margin: 0 auto; padding-left: 35px; text-transform: capitalize;}
+    .locator-content .content-name {margin-bottom: 5px;}
+    .locator-content .content-name img {width: 25px; position: absolute; top: 50%; transform: translateY(-50%);}
+    .locator-content .content-name p {line-height: 25px; padding-left: 35px; font-weight: bold; color: color($colors, primary); font-size: 1.2em;}
+    .locator-content .content-hours fa-icon {margin: 0 8px;}
+
+    .locator-content_root {height: auto !important; width: 280px !important; position: relative; overflow: visible; border-radius: 15px; background-color: #FFF;}
+    .locator-content_root {-webkit-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.15); -moz-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.15); box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.15);}
+    .locator-content_root * {background: none;}
+
+    .locator-content_root > div:first-child {display: none;}
+
+    .locator-content_root:after, .locator-content_root:before {top: 100%; left: 50%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none;}
+    .locator-content_root:after {border-color: rgba(255, 255, 255, 0); border-top-color: #fff; border-width: 13px; margin-left: -13px;}
+    .locator-content_root:before { border-color: rgba(255, 255, 255, 0); border-top-color: #fff; border-width: 14px; margin-left: -14px;}
+
+    .locator-content_root .gm-style-iw {position: relative !important; left: 0 !important; top: 0 !important; width: 100% !important; padding: 10px;}
+
+
+
+
+
+
+}
