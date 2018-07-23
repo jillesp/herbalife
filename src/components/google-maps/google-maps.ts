@@ -429,10 +429,10 @@ export class GoogleMapsComponent {
         }
 
         return srcJSON;
-        let url = './assets/backup/locations.json';
-        this.http.get(url).subscribe((data) => {
-            this.srcJSONx = data;
-        });
+        // let url = './assets/backup/locations.json';
+        // this.http.get(url).subscribe((data) => {
+        //     this.srcJSONx = data;
+        // });
     }
 
     private addMarkers(): void {
