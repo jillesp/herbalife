@@ -1,2 +1,10 @@
->> Search by Person,
->> Edit Contents
+
+>> Modelize locations -- done
+>> getJSONFiles as a Service ?? -- done
+
+>> Edit Contents (Upload JSON)
+>> Replace all tmpId
+>> Refactor searchQuery()
+>> Convert to md5
+
+** Fugure out users.users

@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { User } from '../../models/user';
-import { GithubUsers } from '../../providers/github-users/github-users';
+import { NcUsersProvider } from '../../providers/nc-users/nc-users';
 
 import { LocatorPage } from '../../pages/locator/locator';
 
@@ -24,30 +24,37 @@ export class LoginPage {
   @ViewChild("loginPword") loginPword: HTMLInputElement;
 
   public className: string = "disabled";
+  private srcJSON;
 
-  users: User[]
-  constructor(public navCtrl: NavController, public navParams: NavParams, private githubUsers: GithubUsers) {
-    githubUsers.load().subscribe(users => {
-      console.log(users)
-    })
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userProvider: NcUsersProvider) {
   }
 
   public verifyLogin() {
-    let dummyUser = "herbalife";
-    let dummyPassword = "herbalife";
-    // console.log(this.loginUname);
-    if( (this.loginUname.value == dummyUser || this.loginUname.value == "herbalife_basic" || this.loginUname.value == "herbalife_admin") && this.loginPword.value == dummyPassword) {
-      this.navCtrl.push(LocatorPage);
-    } else {
-      this.triggerWarning();
-    }
+    console.log(this.srcJSON)
+    // if( this.validUName && this.validPWord) {
+    //   this.navCtrl.push(LocatorPage);
+    // } else {
+    //   this.triggerWarning();
+    // }
+  }
+
+  private validUName() {
+    return (this.srcJSON.users.some(user => user.username === this.loginUname));
+  }
+
+  private validPWord() {
+    return (this.srcJSON.users.some(user => user.password === this.loginPword));
   }
 
   public triggerWarning () {
     this.className = 'enabled';
   }
 
-  // ionViewDidLoad() {
-  // }
+  ionViewDidLoad() {
+    this.userProvider.loadNCUsers().subscribe(users => {
+      console.log(users)
+        this.srcJSON = users;
+    })
+  }
 
 }

@@ -1,8 +1,6 @@
 page-locator {
 
-    ion-searchbar {padding: 0 !important;}
-    ion-searchbar input {padding: 8px 45px !important;}
-    ion-searchbar .searchbar-search-icon {top: 16px !important;}
+    ion-searchbar {padding: 0 !important; background: #FFF !important;}
     .locator-form {position: absolute; z-index: 9999; left: 50%; transform: translateX(-50%); width: 95%; overflow: hidden; top: 3px;}
     .locator-form ion-list {margin: 10px 0;}
     .locator-form ion-item {background: #FFF; padding: 5px 15px !important;}

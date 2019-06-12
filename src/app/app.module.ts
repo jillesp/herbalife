@@ -1,5 +1,4 @@
 import { HttpModule } from '@angular/http';
-import { HttpClient} from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -12,9 +11,10 @@ import { SplashPage } from '../pages/splash/splash';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { GithubUsers } from '../providers/github-users/github-users';
 
 import { ComponentsModule } from '../components/components.module';
+import { NcLocationsProvider } from '../providers/nc-locations/nc-locations';
+import { NcUsersProvider } from '../providers/nc-users/nc-users';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import { ComponentsModule } from '../components/components.module';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GithubUsers
+    NcLocationsProvider,
+    NcUsersProvider
   ]
 })
 export class AppModule {}

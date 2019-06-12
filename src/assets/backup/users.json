@@ -1,0 +1,21 @@
+{"users": [
+        {
+            "tmpId": 0,
+            "username": "superuser",
+            "password": "0319",
+            "usergroup": "superuser"
+        },
+        {
+            "tmpId": 1,
+            "username": "herbalife_admin",
+            "password": "admin.123",
+            "usergroup": "admin"
+        },
+        {
+            "tmpId": 2,
+            "username": "herbalife",
+            "password": "",
+            "usergroup": "regular"
+        }
+    ]
+}
