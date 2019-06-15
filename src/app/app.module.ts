@@ -16,6 +16,9 @@ import { ComponentsModule } from '../components/components.module';
 import { NcLocationsProvider } from '../providers/nc-locations/nc-locations';
 import { NcUsersProvider } from '../providers/nc-users/nc-users';
 
+import { AgmCoreModule } from '@agm/core';          
+import { AgmDirectionModule } from 'agm-direction';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -29,6 +32,10 @@ import { NcUsersProvider } from '../providers/nc-users/nc-users';
     HttpClientModule,
     ComponentsModule,
     IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({ 
+      apiKey: 'AIzaSyC-JGJZ5de-LjdH57moTRnax1R2KVHhMwg',
+    }),
+    AgmDirectionModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
