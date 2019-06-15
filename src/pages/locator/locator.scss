@@ -20,20 +20,20 @@ page-locator {
     .locator-content .content p {margin: 0 auto; padding-left: 35px; text-transform: capitalize;}
     .locator-content .content-name {margin-bottom: 5px;}
     .locator-content .content-name img {width: 25px; position: absolute; top: 50%; transform: translateY(-50%);}
-    .locator-content .content-name p {line-height: 25px; padding-left: 35px; font-weight: bold; color: color($colors, primary); font-size: 1.2em;}
+    .locator-content .content-name p {line-height: 18px; padding-left: 35px; font-weight: bold; color: color($colors, primary); font-size: 1.2em;}
     .locator-content .content-hours fa-icon {margin: 0 8px;}
 
-    .locator-content_root {height: auto !important; width: 280px !important; position: relative; overflow: visible; border-radius: 15px; background-color: #FFF;}
+    .locator-content_root {height: auto !important; width: 280px !important; position: relative; overflow: visible; border-radius: 15px; background-color: #FFF; right: 0 !important; bottom: 55px !important;}
     .locator-content_root {-webkit-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.15); -moz-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.15); box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.15);}
     .locator-content_root * {background: none;}
 
-    .locator-content_root > div:first-child {display: none;}
+    // .locator-content_root > div:first-child {display: none;}
 
-    .locator-content_root:after, .locator-content_root:before {top: 100%; left: 50%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none;}
+    .locator-content_root:after, .locator-content_root:before {top: 100%; left: 0%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none;}
     .locator-content_root:after {border-color: rgba(255, 255, 255, 0); border-top-color: #fff; border-width: 13px; margin-left: -13px;}
     .locator-content_root:before { border-color: rgba(255, 255, 255, 0); border-top-color: #fff; border-width: 14px; margin-left: -14px;}
 
-    .locator-content_root .gm-style-iw {position: relative !important; left: 0 !important; top: 0 !important; width: 100% !important; padding: 10px;}
+    .locator-content_root .gm-style-iw {position: absolute !important; left: 0 !important; top: 1 !important; width: 100% !important; padding: 10px;}
 
 
 

@@ -30,12 +30,12 @@ export class LoginPage {
   }
 
   public verifyLogin() {
-    console.log(this.srcJSON)
-    // if( this.validUName && this.validPWord) {
-    //   this.navCtrl.push(LocatorPage);
-    // } else {
-    //   this.triggerWarning();
-    // }
+    // console.log(this.srcJSON)
+    if( this.validUName && this.validPWord) {
+      this.navCtrl.push(LocatorPage);
+    } else {
+      this.triggerWarning();
+    }
   }
 
   private validUName() {
@@ -52,7 +52,7 @@ export class LoginPage {
 
   ionViewDidLoad() {
     this.userProvider.loadNCUsers().subscribe(users => {
-      console.log(users)
+      // console.log(users)
         this.srcJSON = users;
     })
   }

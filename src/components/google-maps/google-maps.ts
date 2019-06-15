@@ -47,23 +47,16 @@ export class GoogleMapsComponent {
     private init(): Promise<any> {
  
         return new Promise((resolve, reject) => {
- 
             this.loadSDK().then((res) => {
- 
                 this.initMap().then((res) => {
                     resolve(true);
                 }, (err) => {
                     reject(err);
                 });
- 
             }, (err) => {
- 
                 reject(err);
- 
             });
- 
         });
- 
     }
  
     private loadSDK(): Promise<any> {
@@ -161,44 +154,28 @@ export class GoogleMapsComponent {
  
     }
  
-    private initMap(): Promise<any> {
+    private async initMap(): Promise<any> {
+        let position = await Geolocation.getCurrentPosition();
+        let latLng = await new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        let mapOptions = {
+            center: latLng,
+            zoom: 15
+        };
 
-        return new Promise((resolve, reject) => {
- 
-            Geolocation.getCurrentPosition().then((position) => {
- 
-                let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
- 
-                let mapOptions = {
-                    center: latLng,
-                    zoom: 15
-                };
- 
-                this.map = new google.maps.Map(this.element.nativeElement, mapOptions);
-                resolve(true);
-
-                this.locationsProvider.loadNCLocations().subscribe(locations => {
-                    this.srcJSON = locations;
-                    this.addMarkers(this.srcJSON);
-                })
-
-            }, (err) => {
- 
-                reject('Could not initialise map');
- 
-            });
-
- 
-        });
- 
+        this.map = await new google.maps.Map(this.element.nativeElement, mapOptions);
+        
+        this.locationsProvider.loadNCLocations().subscribe(locations => {
+            this.srcJSON = locations;
+            this.addMarkers(this.srcJSON);
+        })
     }
 
-    private addMarkers(srcJSON): void {
+    private async addMarkers(srcJSON) {
 
         let testJSON = srcJSON;
         
         this.infowindow = new google.maps.InfoWindow({
-            pixelOffset: new google.maps.Size(16, 18)
+            // pixelOffset: new google.maps.Size(50, 50)
         });
 
         for( var i in testJSON.locations) {
@@ -234,39 +211,36 @@ export class GoogleMapsComponent {
                 position: latLng
             });
             
+            marker.addListener('click', () => {
+                this.renderInfoWindow(formattedContent, marker);
+            });
+
             this.markers.push(marker);
             this.content.push(formattedContent);
-
-            this.addInfoWindow(marker, formattedContent);
         }
     }
 
-    private addInfoWindow(marker, content){
-        this.infowindow = new google.maps.InfoWindow({
-            pixelOffset: new google.maps.Size(16, 18),
-        });
-        
-        google.maps.event.addListener(marker, 'click', () => {
-            if (this.infowindow) {this.infowindow.close();}
-            this.infowindow.setContent(content);
-            this.infowindow.open(this.map, marker);
-            let target = document.getElementsByClassName("gm-style-iw")[0];
-                target = target.parentElement;
-                target.className = 'locator-content_root';
-            this.map.panTo(marker.position);
-            this.setIsListDisabled(true);
-        });
 
-    }
+    private async renderInfoWindow(info, marker) {
 
-    private renderInfoWindow(info, map, marker) {
-        if (this.infowindow) {this.infowindow.close();}
-        this.infowindow.setContent(info);
-        this.infowindow.open(map, marker);
+        if (this.infowindow) this.infowindow.close();
+        await this.infowindow.setContent(info);
+        await this.infowindow.open(this.map, marker);
         let target = document.getElementsByClassName("gm-style-iw")[0];
+        
+        if(target) {
             target = target.parentElement;
             target.className = 'locator-content_root';
-        this.map.panTo(marker.position)
+        }
+
+        this.setMarker(marker);
+    }
+
+    private async setMarker(marker) {
+        let pos = await {lat: marker.position.lat() + .005, lng: marker.position.lng()}
+        console.log(pos)
+        // this.map.panTo(marker.position)
+        this.map.panTo(pos)
         this.setIsListDisabled(true);
     }
 
@@ -288,7 +262,7 @@ export class GoogleMapsComponent {
     }
 
     public getMarker(tmpId) {
-        this.renderInfoWindow(this.content[tmpId], this.map, this.markers[tmpId]);
+        this.renderInfoWindow(this.content[tmpId], this.markers[tmpId]);
     }
 
 }
