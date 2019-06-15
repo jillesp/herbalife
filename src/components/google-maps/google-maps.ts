@@ -15,7 +15,7 @@ const { Geolocation, Network } = Plugins;
   templateUrl: 'google-maps.html'
 })
 export class GoogleMapsComponent {
- 
+    
     @Input('apiKey') apiKey: string;
  
     public map: any;
@@ -27,13 +27,13 @@ export class GoogleMapsComponent {
     private content: any[] = [];
     private listDisabled: boolean = true;
     private srcJSON: any;
+
     
     @ViewChild('locatorSearch') locatorSearch: Searchbar;
 
     constructor(private renderer: Renderer2, private element: ElementRef, @Inject(DOCUMENT) private _document, public http: HttpClient, public locationsProvider: NcLocationsProvider){
- 
     }
- 
+    
     ngOnInit(){
  
         this.init().then((res) => {
@@ -170,13 +170,26 @@ export class GoogleMapsComponent {
         })
     }
 
-    private async addMarkers(srcJSON) {
+    private handleOpenMaps(coords) {
+        // console.log(coords)
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                window.location.href = "http://maps.google.com/maps?saddr=" + pos.lat + "," + pos.lng + "&daddr=" + coords; 
+            });
+        } else {
+            window.location.href = "https://www.google.com/maps/@" + coords;
+        }
+    }
 
+    private async addMarkers(srcJSON) {
+        
         let testJSON = srcJSON;
         
-        this.infowindow = new google.maps.InfoWindow({
-            // pixelOffset: new google.maps.Size(50, 50)
-        });
+        this.infowindow = new google.maps.InfoWindow();
 
         for( var i in testJSON.locations) {
             let x = testJSON.locations[i].coordinates.x;
@@ -188,7 +201,8 @@ export class GoogleMapsComponent {
                                         '<div class="content content-name">' +
                                             '<img src="assets/imgs/icon_herbalife.png" />' +
                                             '<p>'+ content.name +'</p>' +
-                                        '</div>' +
+                                            '<fa-icon class="fas fa-external-link-square-alt href-ctrl" color="light"></fa-icon>' +
+                                        '</div>' + 
                                         '<div class="content content-address">' +
                                             '<fa-icon class="fas fa-map-marked-alt" color="light"></fa-icon>' +
                                             '<p>'+ content.address +'</p>' +
@@ -220,7 +234,6 @@ export class GoogleMapsComponent {
         }
     }
 
-
     private async renderInfoWindow(info, marker) {
 
         if (this.infowindow) this.infowindow.close();
@@ -233,15 +246,20 @@ export class GoogleMapsComponent {
             target.className = 'locator-content_root';
         }
 
-        this.setMarker(marker);
-    }
-
-    private async setMarker(marker) {
         let pos = await {lat: marker.position.lat() + .005, lng: marker.position.lng()}
-        console.log(pos)
-        // this.map.panTo(marker.position)
+
+        this.element.nativeElement.querySelector(".href-ctrl").addEventListener("click", (e) => {
+            this.handleOpenMaps(marker.position);
+        })
+
         this.map.panTo(pos)
         this.setIsListDisabled(true);
+    }
+
+    private setMarker(marker) {
+
+
+        // http://maps.google.com/maps?saddr="+$scope.slat+","+$scope.slon+" &daddr="+$scope.dlat+","+$scope.dlon;
     }
 
     public searchQuery(query){
