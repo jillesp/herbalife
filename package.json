@@ -35,6 +35,9 @@
     "cordova-android": "^8.0.0",
     "cordova-browser": "6.0.0",
     "cordova-plugin-compat": "1.2.0",
+    "cordova-plugin-geolocation": "^4.0.1",
+    "cordova-plugin-network-information": "^2.0.1",
+    "cordova.plugins.diagnostic": "^5.0.0",
     "font-awesome": "^4.7.0",
     "ionic-angular": "^3.9.6",
     "ionicons": "3.0.0",
@@ -60,7 +63,10 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-geolocation": {},
+      "cordova.plugins.diagnostic": {},
+      "cordova-plugin-network-information": {}
     },
     "platforms": [
       "browser",
