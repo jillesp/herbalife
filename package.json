@@ -48,10 +48,10 @@
   "devDependencies": {
     "@ionic/app-scripts": "^3.2.4",
     "@types/googlemaps": "^3.36.4",
-    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "2.0.5",
     "cordova-plugin-ionic-webview": "1.1.19",
-    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-whitelist": "git+https://github.com/apache/cordova-plugin-whitelist.git",
     "typescript": "^3.5.1"
   },

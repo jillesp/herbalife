@@ -22,9 +22,9 @@ import { AgmDirectionModule } from 'agm-direction';
 @NgModule({
   declarations: [
     MyApp,
+    SplashPage,
     LoginPage,
-    LocatorPage,
-    SplashPage
+    LocatorPage
   ],
   imports: [
     BrowserModule,
@@ -32,9 +32,6 @@ import { AgmDirectionModule } from 'agm-direction';
     HttpClientModule,
     ComponentsModule,
     IonicModule.forRoot(MyApp),
-    AgmCoreModule.forRoot({ 
-      apiKey: 'AIzaSyC-JGJZ5de-LjdH57moTRnax1R2KVHhMwg',
-    }),
     AgmDirectionModule,
   ],
   bootstrap: [IonicApp],

@@ -16,7 +16,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = LoginPage;
+  rootPage = SplashPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -25,6 +25,7 @@ export class MyApp {
     public statusBar: StatusBar,
     public splashScreen: SplashScreen
   ) {
+    
     this.initializeApp();
 
     // set our app's pages
