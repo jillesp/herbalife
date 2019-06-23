@@ -5,11 +5,9 @@ import { Plugins } from '@capacitor/core';
 import {} from 'googlemaps';
 import { Searchbar } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
-
-import { Location } from '../../models/location';
 import { NcLocationsProvider } from '../../providers/nc-locations/nc-locations';
 
-const { Geolocation, Network } = Plugins;
+const { Network } = Plugins;
  
 @Component({
   selector: 'google-maps',
@@ -145,14 +143,18 @@ export class GoogleMapsComponent {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            const location = "https://maps.google.com/maps/dir/?api=1&origin="+ pos.lat + "," + pos.lng + "&destination=" + coords + "&travelmode=driving";
-            alert(location)
+            const location = "https://www.google.com/maps/dir/?api=1&origin="+ pos.lat + "," + pos.lng + "&destination=" + coords + "&travelmode=driving&sensor=true";
             window.location.href = location
         }, 
         (error) => {
-            console.log(error)
-            alert(coords)
-            window.location.href = "https://maps.google.com/maps/@?api=1&map_action=map&zoom=12&center=" + coords;
+            if( error.message.includes("Timeout")) {
+                alert("Current location could not be found. Please turn on GPS or Location to proceed with directions.")
+            } else {
+                const location = "https://www.google.com/maps/@?api=1&map_action=map&center=" + coords;
+                window.location.href = location;
+            }
+        }, {
+            timeout: 2000
         });
     }
 

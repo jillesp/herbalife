@@ -3,8 +3,11 @@
 page-login {
     .login-form_logo {margin: 0 auto; padding: 30px 20px; margin-top: 50px; text-align: center;}
     .login-form_logo img {max-width: 370px; width: 100%;}
+    
     .login-form_main {width: 100%; padding: 30px; position: absolute; top: calc(50% + 120px); left: 50%; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%);}
     .login-form_main ion-item {padding: 0;}
+    .login-form_main ion-item .item-inner {padding: 0 !important;}
+    .login-form_main input {padding: 10px; margin: 5px 8px; font-size: 16px;}
     .login-form_login {display: block; margin: 20px auto 0;}
 
     #pseudo-alert {position: fixed; left: 50%; transform: translateX(-50%); bottom: 20px; opacity: .7; padding: 8px 10px; width: 90%; border: 1px solid #FFF; border-color: color($colors, warning); border-radius: 5px;}

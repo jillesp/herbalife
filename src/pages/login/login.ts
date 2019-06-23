@@ -1,10 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { User } from '../../models/user';
 import { NcUsersProvider } from '../../providers/nc-users/nc-users';
-
 import { LocatorPage } from '../../pages/locator/locator';
+import { Plugins } from '@capacitor/core';
 
 /**
  * Generated class for the LoginPage page.
@@ -12,6 +10,8 @@ import { LocatorPage } from '../../pages/locator/locator';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+
+const { Network } = Plugins;
 
 @IonicPage()
 @Component({
@@ -25,34 +25,42 @@ export class LoginPage {
 
   public className: string = "disabled";
   private srcJSON;
+  private warningMessage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public userProvider: NcUsersProvider) {
   }
 
-  public verifyLogin() {
-    // console.log(this.srcJSON)
-    if( this.validUName && this.validPWord) {
-      this.navCtrl.push(LocatorPage);
+  public async verifyLogin() {
+    const network = await Network.getStatus()
+    let msg = "";
+    if(network.connected) {
+      if( this.validUName() && this.validPWord() ) {
+        this.navCtrl.push(LocatorPage);
+      } else {
+        msg = "Error: Please check your login credentials."
+        this.triggerWarning(msg);
+      }
     } else {
-      this.triggerWarning();
+      msg = "Error: Please check your connection and restart the application."
+      this.triggerWarning(msg);
     }
   }
 
   private validUName() {
-    return (this.srcJSON.users.some(user => user.username === this.loginUname));
+    return (this.srcJSON.users.some(user => user.username === this.loginUname.value.toLowerCase()));
   }
 
   private validPWord() {
-    return (this.srcJSON.users.some(user => user.password === this.loginPword));
+    return (this.srcJSON.users.some(user => user.password === this.loginPword.value));
   }
 
-  public triggerWarning () {
+  public triggerWarning (msg) {
     this.className = 'enabled';
+    this.warningMessage = msg;
   }
 
   ionViewDidLoad() {
     this.userProvider.loadNCUsers().subscribe(users => {
-      // console.log(users)
         this.srcJSON = users;
     })
   }
