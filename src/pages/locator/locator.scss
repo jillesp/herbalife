@@ -21,7 +21,9 @@ page-locator {
     .locator-content .content-name {margin-bottom: 5px;}
     .locator-content .content-name img {width: 25px; position: absolute; top: 50%; transform: translateY(-50%);}
     .locator-content .content-name p {line-height: 18px; padding-left: 35px; padding-right: 25px; font-weight: bold; color: color($colors, primary); font-size: 1.2em;}
-    .locator-content .content-name fa-icon {right: 0;}
+    .locator-content .content-name fa-icon {right: 0; cursor: pointer; transition: .5s;}
+    .locator-content .content-name fa-icon:focus,
+    .locator-content .content-name fa-icon:hover {color: color($colors, primary);}
     .locator-content .content-hours fa-icon {margin: 0 8px;}
 
     .locator-content_root {height: auto !important; width: 280px !important; position: relative; overflow: visible; border-radius: 15px; background-color: #FFF; right: 0 !important; bottom: 55px !important;}

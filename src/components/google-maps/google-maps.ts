@@ -28,7 +28,8 @@ export class GoogleMapsComponent {
     private content: any[] = [];
     private listDisabled: boolean = true;
     private srcJSON: any;
-
+    private directions: any; 
+    private location: any;
     
     @ViewChild('locatorSearch') locatorSearch: Searchbar;
 
@@ -138,18 +139,21 @@ export class GoogleMapsComponent {
         });
     }
 
-    private handleDirections(coords) {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-                window.location.href = "http://maps.google.com/maps?saddr=" + pos.lat + "," + pos.lng + "&daddr=" + coords; 
-            });
-        } else {
-            window.location.href = "https://www.google.com/maps/@" + coords;
-        }
+    private async handleDirections(coords) {
+        await navigator.geolocation.getCurrentPosition( (position) => {
+            const pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            const location = "https://maps.google.com/maps/dir/?api=1&origin="+ pos.lat + "," + pos.lng + "&destination=" + coords + "&travelmode=driving";
+            alert(location)
+            window.location.href = location
+        }, 
+        (error) => {
+            console.log(error)
+            alert(coords)
+            window.location.href = "https://maps.google.com/maps/@?api=1&map_action=map&zoom=12&center=" + coords;
+        });
     }
 
     private async initMarkers(srcJSON) {
