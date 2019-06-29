@@ -20,7 +20,7 @@ export class SplashPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   
-  private TIME_IN_MS = 3000;
+  private TIME_IN_MS = 1000;
   private hideSplashTimeout() {
     setTimeout( () => {
       this.navCtrl.push(LoginPage);
