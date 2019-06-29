@@ -53,13 +53,6 @@ export class GoogleMapsComponent {
         return new Promise((resolve, reject) => {
             this.loadSDK().then((res) => {
                 this.initMap().then( async (res) => {
-                    // Use location to set where map will load
-                    // if (navigator.geolocation) {
-                    //     navigator.geolocation.getCurrentPosition( async function(position) {
-                    //         let coords = await new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                    //         this.map.setCenter(coords);
-                    //     })
-                    // }
                     resolve(true);
                 }, (err) => {
                     reject(err);
@@ -161,42 +154,48 @@ export class GoogleMapsComponent {
     private async initMarkers(srcJSON) {
         let testJSON = srcJSON;
         this.infowindow = new google.maps.InfoWindow();
-        for( var i in testJSON.locations) {
-            let x = testJSON.locations[i].coordinates.x;
-            let y = testJSON.locations[i].coordinates.y;
-            let latLng = new google.maps.LatLng(x, y);
-            let content = testJSON.locations[i];
-            let formattedContent = '<div class="locator-content">' +
-                                        '<div class="content content-name">' +
-                                            '<img src="assets/imgs/icon_herbalife.png" />' +
-                                            '<p>'+ content.name +'</p>' +
-                                            '<fa-icon class="fas fa-external-link-square-alt href-ctrl" color="light"></fa-icon>' +
-                                        '</div>' + 
-                                        '<div class="content content-address">' +
-                                            '<fa-icon class="fas fa-map-marked-alt" color="light"></fa-icon>' +
-                                            '<p>'+ content.address +'</p>' +
-                                        '</div>' +
-                                        '<div class="content content-contact">' +
-                                            '<fa-icon class="fas fa-users" color="light"></fa-icon>' +
-                                            '<p>'+ content.owner +'</p>' +
-                                            '<p>'+ content.contact +'</p>' +
-                                        '</div>' +
-                                        '<div class="content content-hours">' +
-                                            '<fa-icon class="fas fa-clock" color="light"></fa-icon>' +
-                                            '<p>'+ content.hours +'</p>' +
-                                        '</div>' +
-                                    '</div>'
-            let marker = new google.maps.Marker({
-                map: this.map,
-                animation: google.maps.Animation.DROP,
-                icon: './assets/imgs/marker_herbalife.png',
-                position: latLng
-            });
-            marker.addListener('click', () => {
-                this.renderInfoWindow(formattedContent, marker);
-            });
-            this.markers.push(marker);
-            this.content.push(formattedContent);
+        for( var i in testJSON) {
+            if(testJSON[i].coordinates) {
+                let latLng = testJSON[i].coordinates;
+                let content = testJSON[i];
+                    content.name = content.name ? content.name : "N/A"
+                    content.address = content.address ? content.address : "N/A"
+                    content.operator = content.operator ? content.operator : "N/A"
+                    content.contact_number = content.contact_number ? content.contact_number : "N/A"
+                    content.operating_hours = content.operating_hours ? content.operating_hours : "N/A"
+
+                let formattedContent = '<div class="locator-content">' +
+                                            '<div class="content content-name">' +
+                                                '<img src="assets/imgs/icon_herbalife.png" />' +
+                                                '<p>'+ content.name +'</p>' +
+                                                '<fa-icon class="fas fa-external-link-square-alt href-ctrl" color="light"></fa-icon>' +
+                                            '</div>' + 
+                                            '<div class="content content-address">' +
+                                                '<fa-icon class="fas fa-map-marked-alt" color="light"></fa-icon>' +
+                                                '<p>'+ content.address +'</p>' +
+                                            '</div>' +
+                                            '<div class="content content-contact">' +
+                                                '<fa-icon class="fas fa-users" color="light"></fa-icon>' +
+                                                '<p>'+ content.operator +'</p>' +
+                                                '<p>'+ content.contact_number +'</p>' +
+                                            '</div>' +
+                                            '<div class="content content-hours">' +
+                                                '<fa-icon class="fas fa-clock" color="light"></fa-icon>' +
+                                                '<p>'+ content.operating_hours +'</p>' +
+                                            '</div>' +
+                                        '</div>'
+                let marker = new google.maps.Marker({
+                    map: this.map,
+                    animation: google.maps.Animation.DROP,
+                    icon: './assets/imgs/marker_herbalife.png',
+                    position: latLng
+                });
+                marker.addListener('click', () => {
+                    this.renderInfoWindow(formattedContent, marker);
+                });
+                this.markers.push(marker);
+                this.content.push(formattedContent);
+            }
         }
     }
 
@@ -221,7 +220,7 @@ export class GoogleMapsComponent {
         if(this.srcJSON) {
             let testJSON = this.srcJSON;
             if(query) {
-                return testJSON.locations.filter((item) => {
+                return testJSON.filter((item) => {
                     return item.area.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.name.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.owner.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.tabTeam.toLowerCase().indexOf(query.toLowerCase()) > -1;
                 });    
             };

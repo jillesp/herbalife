@@ -18,7 +18,7 @@
       <ion-list [className]="isListDisabled() ? 'disabled' : 'enabled'">
           <ion-item *ngFor="let item of items" (click)="callItem(item)">
               <p class="content-area"><b>{{item.name}}</b>, <i>{{item.address}}, {{item.area}}</i></p>
-              <p class="content-owner">{{item.owner}}, <i>{{item.tabTeam}}</i></p>
+              <p class="content-owner">{{item.operator}}, <i>{{item.tab_team}}</i></p>
           </ion-item>
       </ion-list>
     </div>

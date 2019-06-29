@@ -13,7 +13,7 @@ import { Location } from '../../models/location';
   and Angular DI.
 */
 const JSON_root = "https://api.jsonbin.io/";
-const JSON_locations_access_key = "5b58abf9dc72f955bb77ef60";
+const JSON_locations_access_key = "5b58abf9dc72f955bb77ef60/2";
 const JSON_secret_key = "$2a$10$NIl4UEjdKgrxPQs3Z.f8q.HRPDVYNm0IIMLhH5cflTwpcshLO1.Cm";
 
 @Injectable()
