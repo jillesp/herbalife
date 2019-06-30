@@ -1,11 +1,11 @@
 export interface Location {
-    tmp_id: string;
+    tmpId: string;
     area: string;
-    name: number;
-    operators: number;
-    address: number;
-    operating_hours: number;
-    contact_number: number;
+    name: string;
+    operators: string;
+    address: string;
+    operating_hours: string;
+    contact_number: string;
     tab_team: string;
     coordinates: Coordinates;
     

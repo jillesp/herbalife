@@ -221,7 +221,7 @@ export class GoogleMapsComponent {
             let testJSON = this.srcJSON;
             if(query) {
                 return testJSON.filter((item) => {
-                    return item.area.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.name.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.owner.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.tabTeam.toLowerCase().indexOf(query.toLowerCase()) > -1;
+                    return item.area.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.name.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.operator.toLowerCase().indexOf(query.toLowerCase()) > -1 || item.tab_team.toLowerCase().indexOf(query.toLowerCase()) > -1;
                 });    
             };
         }
